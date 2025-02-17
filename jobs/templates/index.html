@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - Job Listings{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Job Listings</h1>
+
+    <div class="mb-4 text-end">
+        <a href="{% url 'admin:jobs_joblisting_add' %}" class="btn btn-sm btn-success">Add New Job</a>
+    </div>
+
+    <form method="GET" class="d-flex mb-4">
+        <input type="text" name="q" class="form-control me-2" placeholder="Search jobs..." value="{{ request.GET.q }}">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+            <tr>
+                <td>{{ job.title }}</td>
+                <td>{{ job.company }}</td>
+                <td>{{ job.location }}</td>
+                <td>
+                    <a href="{% url 'admin:jobs_joblisting_change' job.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'admin:jobs_joblisting_delete' job.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="text-center">No jobs found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

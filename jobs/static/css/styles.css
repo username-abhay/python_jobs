@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #333;
+}
+
+.navbar {
+    padding: 15px;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table td, .table th {
+    padding: 12px;
+    text-align: center;
+}
+
+.btn-warning {
+    color: white;
+}
