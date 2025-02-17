@@ -16,7 +16,7 @@ django.setup()
 from jobs.models import JobListing
 
 # Your ScraperAPI key - replace with your actual key
-SCRAPER_API_KEY = '70fa9b5ea300ee044d538daf4ed16ade' 
+SCRAPER_API_KEY = 'Hidden' 
 
 def scrape_indeed_jobs(max_pages=2):
     """Scrape jobs using ScraperAPI"""
