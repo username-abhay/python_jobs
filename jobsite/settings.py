@@ -68,12 +68,20 @@ WSGI_APPLICATION = 'jobsite.wsgi.application'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'job_database',
         'CLIENT': {
-            'host': os.getenv('MONGODB_URI', 'mongodb://localhost:27017/'),}
+            'host': os.getenv('MONGODB_URI'),}
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'CLIENT': {
+#             'host': os.getenv('MONGODB_URI', 'mongodb://localhost:27017/'),}
+#     }
+# }
 
 # Password validation
 LOGIN_URL = '/admin/login/'

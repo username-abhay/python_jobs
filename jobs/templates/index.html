@@ -5,6 +5,7 @@
 
 {% block content %}
 <div class="container">
+<p class="text-muted">Last updated: {% now "Y-m-d H:i:s" %}</p>
     <h1 class="text-center">Job Listings</h1>
 
     <div class="mb-4 text-end">
@@ -43,5 +44,6 @@
             {% endfor %}
         </tbody>
     </table>
+    
 </div>
 {% endblock %}
