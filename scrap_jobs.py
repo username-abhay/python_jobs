@@ -23,7 +23,7 @@ def scrape_indeed_jobs(max_pages=2):
     print("\nStarting the scraper...")
     
     # Connect to MongoDB
-    client = MongoClient('mongodb://localhost:27017/')
+    client = MongoClient(os.getenv('MONGODB_URI'))
     db = client['job_database']
     raw_jobs = db['raw_scraped_jobs']
     
@@ -93,7 +93,7 @@ def scrape_indeed_jobs(max_pages=2):
 def process_and_display_jobs():
     """Process jobs from MongoDB and display in Django admin"""
     try:
-        client = MongoClient('mongodb://localhost:27017/')
+        client = MongoClient(os.getenv('MONGODB_URI'))
         db = client['job_database']
         raw_jobs = db['raw_scraped_jobs']
         
